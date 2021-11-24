@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/detail.css">
     <link rel="shortcut icon" href="imgs/instagram.png">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
@@ -98,52 +99,35 @@
                                     <div class="country">Seoul, South Korea</div>
                                 </div>
                             </div>
-                            <div class="sprite_more_icon" data-name="more">
-                                <ul class="more_detail">
-                                    <li>팔로우</li>
-                                    <li>수정</li>
-                                    <li>삭제</li>
-                                </ul>
-                            </div>
+                            <div class="sprite_more_icon" data-name="more" data-toggle="modal" data-target="#exampleModal">
+                            </div>  
 
                         </header>
 
-                        <section class="scroll_section">
-                            <div class="admin_container">
-                                <div class="admin"><img src="images/thumb.jpeg" alt="user"></div>
-                                <div class="comment">
-                                    <span class="user_id">Kindtiger</span>강아지가 많이 힘든가보다ㅜㅜㅜㅜㅜ조금만힘내
-                                    <div class="time">2시간</div>
-                                </div>
-                            </div>
+                        <div>
+                            
+                        </div>
 
+                        <section class="scroll_section">
                             <div class="user_container-detail">
                                 <div class="user"><img src="images/thumb02.jpg" alt="user"></div>
                                 <div class="comment">
                                     <span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-                                    <div class="time">2시간 <span class="try_comment">답글 달기</span></div>
+                                    <div class="time">2시간</div>
                                     <div class="icon_wrap">
                                         <div class="more_trigger">
                                             <div class="sprite_more_icon"></div>
                                         </div>
-                                        <div>
-                                            <div class="sprite_small_heart_icon_outline"></div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                         </section>
-
-
-                        
 
                         <div class="count_likes">
                             좋아요
                             <span class="count">2,351</span>
                             개
                         </div>
-                        <div class="timer">2시간</div>
 
                         <div class="commit_field">
                             <input type="text" placeholder="댓글달기..">
@@ -176,7 +160,23 @@
 
 </section>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">수정</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-danger">삭제</a>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!--<script src="js/detail.js"></script>-->
 
 
