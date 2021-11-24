@@ -452,3 +452,11 @@
     flex-direction: column;
     gap: 16px;
 }
+
+#header .h_inner {
+    width: 1260px;
+}
+
+#header .right_icons{
+    width: 60px;
+}
