@@ -434,29 +434,33 @@
     margin-left: 10px;
     cursor: pointer;
 }
-/*---------------------------detail-page*/
 
+/*--------------------------- Seonman Add */
 
 #main_container .b_inner {
     width: 1260px;
     position: relative;
 }
 
+/*---------------------------detail-page*/
 
-.side_box .profile_thumb {
-    width: 200px;
-    height: 200px;
+
+
+/* common.js */
+#header .h_inner {
+    width: 1260px;
+}
+
+/* style.css */
+.side_box > article {
+    margin-top: 30px;
+}
+
+#header .right_icons{
+    width: 60px;
 }
 
 .side_box .user_profile {
     flex-direction: column;
     gap: 16px;
-}
-
-#header .h_inner {
-    width: 1260px;
-}
-
-#header .right_icons{
-    width: 60px;
 }
