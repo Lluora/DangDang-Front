@@ -437,4 +437,18 @@
 /*---------------------------detail-page*/
 
 
+#main_container .b_inner {
+    width: 1260px;
+    position: relative;
+}
 
+
+.side_box .profile_thumb {
+    width: 200px;
+    height: 200px;
+}
+
+.side_box .user_profile {
+    flex-direction: column;
+    gap: 16px;
+}
