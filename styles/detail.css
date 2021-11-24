@@ -428,6 +428,12 @@
 .contents .bottom_icons {
     padding: 10px 0px;
 }
+
+.delete_comment {
+    font-size: 12px;
+    margin-left: 10px;
+    cursor: pointer;
+}
 /*---------------------------detail-page*/
 
 
