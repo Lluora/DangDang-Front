@@ -38,8 +38,9 @@
 .contents .content_section{
     grid-row: 2 / 3;
     grid-column: 1 / 2;
-    max-width: 600px;
+    max-width: 590px;
     padding: 10px;
+    padding-right: 0px;
 }
 
 
@@ -437,6 +438,10 @@
 .content_section .admin_comment{
     margin-top: 10px;
     line-height: 1.6;
+}
+
+.contents .bottom_icons {
+    padding: 10px 0px;
 }
 /*---------------------------detail-page*/
 
