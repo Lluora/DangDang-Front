@@ -6,6 +6,10 @@
     border: 1px solid rgba(0,0,0,.0975);
     border-radius: 3px;
     background: #fff;
+
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    grid-template-columns: max-content 1fr;
 }
 
 .contents .img_section{
@@ -13,6 +17,8 @@
     max-width: 598px;
     border-right: 1px solid rgba(0,0,0,.0975);
 
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
 }
 
 .contents .img_section .trans_inner{
@@ -29,6 +35,10 @@
     height: 100%;
 }
 
+.contents .content_section{
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
 
 
 .user_container{
@@ -58,10 +68,6 @@
     margin-bottom: 5px;
 }
 
-
-.contents .top{
-
-}
 .top .more_detail{
     position: absolute;
     right: -60px;
@@ -117,6 +123,9 @@
 .detail--right_box{
     max-width:335px;
     width: 100%;
+
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
 }
 
 
@@ -266,10 +275,6 @@
 
 }
 
-.bottom_icons .left_icons > div.on{
-
-}
-
 .sprite_heart_icon_outline.on{
     background: url('../images/background01.png') no-repeat -26px -261px;
     animation:heart_bounce 1s linear;
@@ -354,11 +359,6 @@
     pointer-events: initial;
     opacity: 1;
 }
-.commit_field .upload_btn.on{
-
-}
-
-
 
 .del_pop{
     width: 100%;
