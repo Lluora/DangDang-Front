@@ -1,9 +1,7 @@
-
-/.idea
-.DS_Store
-./develop
 .idea
+.DS_Store
 .idea/
-./main
 develop/
 main/
+venv/
+idea/
