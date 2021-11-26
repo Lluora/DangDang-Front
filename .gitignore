@@ -3,7 +3,7 @@
 .DS_Store
 ./develop
 .idea
-idea/
+.idea/
 ./main
-develop
-main
+develop/
+main/
