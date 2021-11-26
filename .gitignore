@@ -1,7 +1,9 @@
 
 /.idea
 .DS_Store
-/develop
+./develop
 .idea
 idea/
-/main
+./main
+develop
+main
