@@ -147,9 +147,9 @@
     padding: 5px 5px;
 }
 
-.scroll_section{ /* 스크롤 */
+.scroll_section{
     padding:12px 16px;
-    height: 600px;
+    height: 400px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
