@@ -63,25 +63,22 @@
             font-size: 20px;
         }
 
-        /*Resize the wrap to see the search bar change!*/
-        .wrap {
-            width: 90%;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-
-        /*!* content *!*/
-        /*.contentss {*/
-        /*    width: 100%;*/
-        /*    height: 550px;*/
+        /*!*Resize the wrap to see the search bar change!*!*/
+        /*.wrap {*/
+        /*    width: 90%;*/
+        /*    position: absolute;*/
+        /*    top: 100%;*/
+        /*    left: 50%;*/
+        /*    transform: translate(-50%, -50%);*/
         /*}*/
 
+
+        /* 글 작성하기 */
         .board-write {
             font-size: 16px;
+            border: none;
         }
+
 
     </style>
 </head>
@@ -178,50 +175,44 @@
                     <div class="content_section">
 
 
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                강아지를 선택해주세요
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button class="dropdown-item" type="button">미니핀(7살)</button>
-                                <button class="dropdown-item" type="button">미니핀(2살)</button>
-                                <button class="dropdown-item" type="button">미니핀(1살)</button>
-                            </div>
+                        <div class="box">
+                            <select>
+                                <option>미니핀 (1살)</option>
+                                <option>미니핀 (5살)</option>
+                                <option>미니핀 (7살)</option>
+                                <option>푸들 (5살)</option>
+                            </select>
                         </div>
                     </div>
 
 
-                    <!-- 댓글 -->
-                    <div class="detail--right_box">
-                        <header class="top">
-
-                            <!--    <div class="wrap"> -->
-                            <div class="search">
-                                <input type="text" class="searchTerm" placeholder="위치 등록">
-                                <button type="submit" class="searchButton">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                            <!--  </div> -->
-                        </header>
-
-
-                        <!-- 댓글 상대방 -->
-                        <section class="scroll_section">
-                            <div class="user_container-detail">
-                                <textarea class="board-write" rows="22" cols=30 wrap="hard"></textarea>
-                                <!-- <input class="contentss" type="text" style="word-break:break-all">-->
+                        <!-- 위치 등록 -->
+                        <div class="detail--right_box">
+                            <header class="top">
+                                <!--    <div class="wrap"> -->
+                                <div class="search">
+                                    <input type="text" class="searchTerm" placeholder="위치 등록">
+                                    <button type="submit" class="searchButton">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                                <!--  </div> -->
+                            </header>
 
 
+                            <!-- 글 작성하기 -->
+                            <section class="scroll_section">
+                                <div class="user_container-detail">
+                                <textarea required class="board-write" rows="22" cols=30 wrap="hard" required
+                                          placeholder="글 작성하기"></textarea>
+                                </div>
+                            </section>
 
-                            </div>
 
-                        </section>
-   <div class="add_button">
+                            <div class="add_button">
                                 <div class="button1">등록하기</div>
                             </div>
-
+                        </div>
                 </article>
 
 
