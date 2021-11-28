@@ -79,11 +79,26 @@
             border: none;
         }
 
+        #writer {
+            display: block;
+        }
 
     </style>
 </head>
 <body>
+<script>
+    let num=0;
+    function counter() {
+       num+=1
+        if (num>0) {
+            $("#writer").hide();
+        }
+    }
 
+    function clickclick() {
+        $("#writer").show();
+    }
+</script>
 
 <section id="container">
 
@@ -191,8 +206,8 @@
                             <header class="top">
                                 <!--    <div class="wrap"> -->
                                 <div class="search">
-                                    <input type="text" class="searchTerm" placeholder="위치 등록">
-                                    <button type="submit" class="searchButton">
+                                    <input onkeydown="counter()" type="text" class="searchTerm" placeholder="위치 등록">
+                                    <button type="submit" class="searchButton" onclick="clickclick()">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </div>
@@ -202,8 +217,8 @@
 
                             <!-- 글 작성하기 -->
                             <section class="scroll_section">
-                                <div class="user_container-detail">
-                                <textarea required class="board-write" rows="22" cols=30 wrap="hard" required
+                                <div id="writer" class="user_container-detail">
+                                <textarea class="board-write" rows="22" cols=30 wrap="hard" required
                                           placeholder="글 작성하기"></textarea>
                                 </div>
                             </section>
