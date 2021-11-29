@@ -530,7 +530,7 @@
     top: 10px;
     opacity: 0;
     transition: opacity 0.5s ease, top 0.5s ease;
-    transition-delay: 0;
+    transition-delay: 0s;
 }
 span {
     transition: color 0.5s ease;
@@ -617,7 +617,7 @@ span {
     /*border: 1px solid rgba(255,115,200,.0975);*/
     width: 950px;
     height: 1000px;
-    display: grid;
+    display: flex;
     grid-template-rows: repeat(auto-fill, 300px);
     grid-template-columns: 1fr 1fr 1fr ;
     grid-column-gap: 34px;
