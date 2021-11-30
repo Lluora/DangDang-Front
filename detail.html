@@ -101,8 +101,7 @@
                     <div class="content_section">
                         <div class="bottom_icons">
                             <div class="left_icons">
-                                <div class="heart_btn">
-                                    <div class="sprite_heart_icon_outline" data-name="heartbeat"></div>
+                                <div class="heart_btn" id="feed_like_btn">
                                 </div>
                             </div>
                         </div>
@@ -197,10 +196,7 @@
 <script>
     let idx = '';
     $(document).ready(function () {
-        let idx = getParam('idx')
-        console.log(`idx : ${idx}`)
-
-        getArticle(idx);
+        getArticle(getParam('idx'));
     });
 
     function getParam(name) {
@@ -211,18 +207,43 @@
     function getArticle(idx) {
         $.ajax({
             type: "GET",
-            url: `http://localhost:8080/api/post/${idx}`,
+            url: `http://localhost:8080/api/feed/${idx}`,
             success: function (response) {
                 console.dir(response)
 
-                $(".post_writer").html(response['user_id']);
+                $(".post_writer").html(response['userId']);
                 $("#writer_address").html(response['address']);
-                $("#post_updatetime").html(response['update_time'])
-                $('#post_like_count').html(response['like_count'])
+                $("#post_updatetime").html(response['updateTime'])
+                $('#post_like_count').html(response['likeCount'])
                 $('#post_content').html(response['content'])
 
-                $("#post_main_img").attr("src", `http://localhost:8080/img/${response['main_image']}`);
-                $(".writer_profile_img").attr("src", `http://localhost:8080/img/${response['user_profile_img']}`)
+                $("#post_main_img").attr("src", `http://localhost:8080/img/${response['mainImage']}`);
+                $(".writer_profile_img").attr("src", `http://localhost:8080/img/${response['userProfileImg']}`)
+
+                if (response['like'] === false) {
+                    $("#feed_like_btn").html('<div class="sprite_heart_icon_outline" data-name="heartbeat" onclick="requestFeedLike(true);"></div>');
+                } else if (response['like'] === true) {
+                    $("#feed_like_btn").html('<div class="sprite_heart_icon_outline on" data-name="heartbeat" onclick="requestFeedLike(false);"></div>');
+                }
+
+            }
+        })
+    }
+
+    function requestFeedLike(request_like) {
+        let idx = getParam('idx')
+
+        $.ajax({
+            type: "PUT",
+            url: `http://localhost:8080/api/feed/${idx}/like`,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({like: request_like}),
+            success: function (response) {
+                if (response['like'] === false) {
+                    $("#feed_like_btn").html('<div class="sprite_heart_icon_outline" data-name="heartbeat" onclick="requestFeedLike(true);"></div>');
+                } else if (response['like'] === true) {
+                    $("#feed_like_btn").html('<div class="sprite_heart_icon_outline on" data-name="heartbeat" onclick="requestFeedLike(false);"></div>');
+                }
             }
         })
     }
