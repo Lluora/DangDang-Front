@@ -132,19 +132,7 @@
                             </div>  
                         </header>
 
-                        <section class="scroll_section">
-                            <div class="user_container-detail">
-                                <div class="user"><img src="images/thumb02.jpg" alt="user"></div>
-                                <div class="comment">
-                                    <span class="user_id">in0.lee</span>너무귀엽네요 ㅎㅎㅎ맞팔해요~!
-                                    <div class="time">2시간 <span class="delete_comment">답글 삭제</span></div> 
-                                    <div class="icon_wrap">
-                                        <div class="more_trigger">
-                                            <div class="sprite_more_icon"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <section class="scroll_section" id="comment_container">
                         </section>
 
                         <div class="count_likes">
@@ -197,6 +185,7 @@
     let idx = '';
     $(document).ready(function () {
         getArticle(getParam('idx'));
+        getFeedComment(getParam('idx'))
     });
 
     function getParam(name) {
@@ -209,8 +198,6 @@
             type: "GET",
             url: `http://localhost:8080/api/feed/${idx}`,
             success: function (response) {
-                console.dir(response)
-
                 $(".post_writer").html(response['userId']);
                 $("#writer_address").html(response['address']);
                 $("#post_updatetime").html(response['updateTime'])
@@ -247,6 +234,47 @@
             }
         })
     }
+
+    function getFeedComment(idx) {
+        $.ajax({
+            type: "GET",
+            url: `http://localhost:8080/api/feed/${idx}/comment`,
+            success: function (response) {
+                comments = response['comments']
+
+                for (let i = 0; i < comments.length; i++) {
+                    console.log(comments[i]);
+                    let commentUser = comments[i]['commentUser']
+
+                    let temp_html = `<div class="user_container-detail">
+                        <div class="user"><img src="images/${commentUser['userProfileImg']}" alt="user"></div>
+                        <div class="comment">
+                            <span class="user_id">${commentUser['userId']}</span>${comments[i]['content']}
+                            <div class="time">${comments[i]['createDate']} <span class="delete_comment" onclick="deleteFeedComment(${comments[i]['idx']})">삭제</span></div>
+                            <div class="icon_wrap">
+                                <div class="more_trigger">
+                                    <div class="sprite_more_icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+
+                    $("#comment_container").append(temp_html)
+                }
+            }
+        })
+    }
+
+    function deleteFeedComment(commentIdx) {
+        $.ajax({
+            type: "DELETE",
+            url: `http://localhost:8080/api/feed/comment/${commentIdx}`,
+            success: function (response) {
+                alert(response['msg'])
+            }
+        })
+    }
+
 </script>
 
 </body>
