@@ -231,6 +231,8 @@
                 } else if (response['like'] === true) {
                     $("#feed_like_btn").html('<div class="sprite_heart_icon_outline on" data-name="heartbeat" onclick="requestFeedLike(false);"></div>');
                 }
+
+                location.reload();
             }
         })
     }
@@ -244,11 +246,11 @@
 
                 for (let i = 0; i < comments.length; i++) {
                     let commentUser = comments[i]['commentUser']
-
+                    console.dir(commentUser)
                     let temp_html = `<div class="user_container-detail">
                         <div class="user"><img src="images/${commentUser['profileImgName']}" alt="user"></div>
                         <div class="comment">
-                            <span class="user_id">${commentUser['userId']}</span>${comments[i]['content']}
+                            <span class="user_id">${commentUser['nickName']}</span>${comments[i]['content']}
                             <div class="time">${comments[i]['createDate']} <span class="delete_comment" onclick="deleteFeedComment(${comments[i]['idx']})">삭제</span></div>
                             <div class="icon_wrap">
                                 <div class="more_trigger">
