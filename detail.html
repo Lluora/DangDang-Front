@@ -142,8 +142,8 @@
                         </div>
 
                         <div class="commit_field">
-                            <input type="text" placeholder="댓글달기..">
-                            <div class="upload_btn">게시</div>
+                            <input type="text" id="comment_ta" placeholder="댓글달기..">
+                            <div class="upload_btn" onclick="writeFeedComment();">게시</div>
                         </div>
                     </div>
                 </article>
@@ -243,11 +243,10 @@
                 comments = response['comments']
 
                 for (let i = 0; i < comments.length; i++) {
-                    console.log(comments[i]);
                     let commentUser = comments[i]['commentUser']
 
                     let temp_html = `<div class="user_container-detail">
-                        <div class="user"><img src="images/${commentUser['userProfileImg']}" alt="user"></div>
+                        <div class="user"><img src="images/${commentUser['profileImgName']}" alt="user"></div>
                         <div class="comment">
                             <span class="user_id">${commentUser['userId']}</span>${comments[i]['content']}
                             <div class="time">${comments[i]['createDate']} <span class="delete_comment" onclick="deleteFeedComment(${comments[i]['idx']})">삭제</span></div>
@@ -271,6 +270,22 @@
             url: `http://localhost:8080/api/feed/comment/${commentIdx}`,
             success: function (response) {
                 alert(response['msg'])
+                location.reload()
+            }
+        })
+    }
+
+    function writeFeedComment() {
+        let idx = getParam('idx')
+        let comment = $("#comment_ta").val()
+
+        $.ajax({
+            type: "PUT",
+            url: `http://localhost:8080/api/feed/${idx}/comment`,
+            data:{'comment': comment},
+            success: function (response) {
+                alert(response['msg'])
+                location.reload()
             }
         })
     }
