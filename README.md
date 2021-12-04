@@ -16,3 +16,14 @@ As a community site, you can share photos and know where you can be with your do
 
 ## Backend Repository
 👉🏻 https://github.com/Lluora/DangDang
+
+<br>
+
+## Member
+- 천소연(팀장) [Tistory](https://lu-delight.tistory.com/)
+- 유제협 [Velog](https://velog.io/@yu_jep)
+- 김선만 [Velog](http://velog.io/@manijang2)
+
+<br>
+
+### * [Team blog](https://lu-delight.tistory.com/category/spartacodingclub/Project)
