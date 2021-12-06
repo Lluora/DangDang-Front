@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<!-- $.ajax is not a function  error 해결방법 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
 
     <style>
         @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -63,15 +66,6 @@
             font-size: 20px;
         }
 
-        /*!*Resize the wrap to see the search bar change!*!*/
-        /*.wrap {*/
-        /*    width: 90%;*/
-        /*    position: absolute;*/
-        /*    top: 100%;*/
-        /*    left: 50%;*/
-        /*    transform: translate(-50%, -50%);*/
-        /*}*/
-
 
         /* 글 작성하기 */
         .board-write {
@@ -83,10 +77,24 @@
             display: block;
         }
 
+
+        /* 이미지 업로드 화면 비율 맞추기 */
+        #product_image {
+            background-size: cover;
+            background-position: 50%;
+        }
+
+
     </style>
 </head>
 <body>
 <script>
+
+    $(document).ready(function () {
+        bsCustomFileInput.init()  // 파일 업로드 코드
+    })
+
+
     let num=0;
     function counter() {
        num+=1
@@ -98,11 +106,50 @@
     function clickclick() {
         $("#writer").show();
     }
+
+
+
+    function saveArticle() {
+        let form_data = new FormData()
+        form_data.append("address", $("#addressSearch").val())
+        form_data.append("content", $("#writerArticle").val())
+        form_data.append("image", $("#product_image")[0].files[0])
+
+        $.ajax({
+            type: "POST",
+            url: "/api/upload",
+            data: form_data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                alert("글 저장 성공!!");
+                // sessionStorage.setItem("image_idx", response['idx']);
+                location.href = "/"; // 페이지 변환
+            }
+        });
+    }
+
+
+
+
+
+    <!-- 이미지 미리보기 -->
+    function setThumbnail(event) {
+        let reader = new FileReader();
+        reader.onload = function (event) {
+            let img = document.createElement("img");
+            img.setAttribute("id", "imageUpload");
+            img.setAttribute("src", event.target.result);
+            img.setAttribute("width", 300);
+            img.setAttribute("height", 300)
+            img.setAttribute("class", "col-lg-6");
+            document.querySelector("div#image_container").appendChild(img);
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
 </script>
 
 <section id="container">
-
-
     <header id="header">
         <section class="h_inner">
 
@@ -179,17 +226,25 @@
 
 
                 <article class="contents cont01">
-
                     <!-- image -->
                     <div class="img_section">
                         <div class="trans_inner">
-                            <div><img src="images/img_section/coco.jpg" alt=""></div>
+
+                            <!-- 이미지 업로드 -->
+                            <div class="form-group">
+                                <input class="form-control form-control-user" type="file"
+                                       name="product_image" id="product_image" onchange="setThumbnail(event);">
+                            </div>
+                            <!-- <div><img src="images/img_section/coco.jpg" alt=""></div> -->
+                            <div id ="image_container"></div>
+
                         </div>
                     </div>
 
+
+
+
                     <div class="content_section">
-
-
                         <div class="box">
                             <select>
                                 <option>미니핀 (1살)</option>
@@ -206,7 +261,7 @@
                             <header class="top">
                                 <!--    <div class="wrap"> -->
                                 <div class="search">
-                                    <input onkeydown="counter()" type="text" class="searchTerm" placeholder="위치 등록">
+                                    <input id="addressSearch" onkeydown="counter()" type="text" class="searchTerm" placeholder="위치 등록">
                                     <button type="submit" class="searchButton" onclick="clickclick()">
                                         <i class="fa fa-search"></i>
                                     </button>
@@ -218,15 +273,16 @@
                             <!-- 글 작성하기 -->
                             <section class="scroll_section">
                                 <div id="writer" class="user_container-detail">
-                                <textarea class="board-write" rows="22" cols=30 wrap="hard" required
+                                <textarea id="writerArticle" class="board-write" rows="22" cols=30 wrap="hard" required
                                           placeholder="글 작성하기"></textarea>
                                 </div>
                             </section>
 
 
                             <div class="add_button">
-                                <div class="button1">등록하기</div>
+                                <div class="button1" onclick="saveArticle()">등록하기</div>
                             </div>
+
                         </div>
                 </article>
 
@@ -260,9 +316,16 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+<!-- 파일 업로드 라이브러리 -->
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
+
+<!-- ajax 오류 해결 방법으로 인해 slim 제거 -->
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
