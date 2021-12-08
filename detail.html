@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <title>댕댕백서 - 상세보기</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/detail.css">
+    <link rel="shortcut icon" href="imgs/instagram.png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+
+<section id="container">
+    <header id="header">
+        <section class="h_inner">
+            <h1 class="logo">
+                <a href="index.html">
+                    <div class="sprite_insta_icon"></div>
+                    <div>
+                        <div class="sprite_write_logo"></div>
+                    </div>
+                </a>
+            </h1>
+            <div class="right_icons">
+                <a href="new_post.html"><div class="sprite_camera_icon"></div></a>
+                <a href="profile.html"><div class="sprite_user_icon_outline"></div></a>
+            </div>
+        </section>
+    </header>
+
+
+    <div id="main_container">
+
+        <section class="b_inner">
+            <div class="side_box">
+                <div class="user_profile">
+                    <div class="main_profile_thumb">
+                        <img src="images/thumb.jpeg" alt="프로필사진">
+                    </div>
+                    <div class="detail">
+                        <div class="id m_text">@manijang2 <i class="fas fa-pencil-alt"></i></div>
+                    </div>
+                </div>
+                <article class="story">
+                    <header class="story_header">
+                        <div>오늘의 댕댕이</div>
+                    </header>
+
+                    <div class="scroll_inner">
+                        <div class="thumb_user">
+                            <div class="profile_thumb">
+                                <img src="images/thumb02.jpg" alt="프로필사진">
+                            </div>
+                            <div class="detail">
+                                <div class="id">1등 kind_tigerrrr</div>
+                                <div class="time">1시간 전</div>
+                            </div>
+                        </div>
+                        <div class="thumb_user">
+                            <div class="profile_thumb">
+                                <img src="images/thumb02.jpg" alt="프로필사진">
+                            </div>
+                            <div class="detail">
+                                <div class="id">2등 kind_tigerrrr</div>
+                                <div class="time">1시간 전</div>
+                            </div>
+                        </div>
+                        <div class="thumb_user">
+                            <div class="profile_thumb">
+                                <img src="images/thumb02.jpg" alt="프로필사진">
+                            </div>
+                            <div class="detail">
+                                <div class="id">3등 kind_tigerrrr</div>
+                                <div class="time">1시간 전</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="contents_box">
+
+                <article class="contents cont01">
+
+                    <div class="img_section">
+                        <div class="trans_inner">
+                            <div><img src="" alt=""id="post_main_img"></div>
+                        </div>
+                    </div>
+
+                    <div class="content_section">
+                        <div class="bottom_icons">
+                            <div class="left_icons">
+                                <div class="heart_btn" id="feed_like_btn">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_container">
+                            <div class="admin"><img src="" alt="user" class="writer_profile_img"></div>
+                            <div class="comment">
+                                <span class="user_id post_writer"></span>
+                                <span class="time" id="post_updatetime"></span>
+                            </div>
+                        </div>
+                        <div class="admin_comment" id="post_content">
+                        </div>
+                    </div>
+
+
+                    <div class="detail--right_box">
+                        <header class="top">
+                            <div class="user_container">
+                                <div class="profile_img">
+                                    <img src="" alt="" class="writer_profile_img">
+                                </div>
+                                <div class="user_name">
+                                    <div class="nick_name post_writer"></div>
+                                    <div class="country" id="writer_address"></div>
+                                </div>
+                            </div>
+                            <div class="sprite_more_icon" data-name="more" data-toggle="modal" data-target="#exampleModal">
+                            </div>  
+                        </header>
+
+                        <section class="scroll_section" id="comment_container">
+                        </section>
+
+                        <div class="count_likes">
+                            좋아요
+                            <span class="count" id="post_like_count"></span>
+                            개
+                        </div>
+
+                        <div class="commit_field">
+                            <input type="text" id="comment_ta" placeholder="댓글달기..">
+                            <div class="upload_btn" onclick="writeFeedComment();">게시</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+
+    <div class="del_pop">
+        <div class="btn_box">
+            <div class="del">삭제</div>
+            <div class="cancel">취소</div>
+        </div>
+   </div>
+
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">수정</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-danger" onclick="deleteFeed();">삭제</a>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/3719d7b7e9.js" crossorigin="anonymous"></script>
+<!--<script src="js/detail.js"></script>-->
+
+<script>
+    let idx = '';
+    $(document).ready(function () {
+        getArticle(getParam('idx'));
+        getFeedComment(getParam('idx'))
+    });
+
+    function getParam(name) {
+        var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+        return results[1] || 0;
+    }
+
+    function getArticle(idx) {
+        $.ajax({
+            type: "GET",
+            url: `http://localhost:8080/api/feed/${idx}`,
+            success: function (response) {
+                $(".post_writer").html(response['userId']);
+                $("#writer_address").html(response['address']);
+                $("#post_updatetime").html(response['updateTime'])
+                $('#post_like_count').html(response['likeCount'])
+                $('#post_content').html(response['content'])
+
+                $("#post_main_img").attr("src", `http://localhost:8080/img/${response['mainImage']}`);
+                $(".writer_profile_img").attr("src", `http://localhost:8080/img/${response['userProfileImg']}`)
+
+                if (response['like'] === false) {
+                    $("#feed_like_btn").html('<div class="sprite_heart_icon_outline" data-name="heartbeat" onclick="requestFeedLike(true);"></div>');
+                } else if (response['like'] === true) {
+                    $("#feed_like_btn").html('<div class="sprite_heart_icon_outline on" data-name="heartbeat" onclick="requestFeedLike(false);"></div>');
+                }
+            }
+        })
+    }
+
+    function requestFeedLike(request_like) {
+        let idx = getParam('idx')
+
+        $.ajax({
+            type: "PUT",
+            url: `http://localhost:8080/api/feed/${idx}/like`,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({like: request_like}),
+            success: function (response) {
+                if (response['like'] === false) {
+                    $("#feed_like_btn").html('<div class="sprite_heart_icon_outline" data-name="heartbeat" onclick="requestFeedLike(true);"></div>');
+                } else if (response['like'] === true) {
+                    $("#feed_like_btn").html('<div class="sprite_heart_icon_outline on" data-name="heartbeat" onclick="requestFeedLike(false);"></div>');
+                }
+
+                location.reload();
+            }
+        })
+    }
+
+    function getFeedComment(idx) {
+        $.ajax({
+            type: "GET",
+            url: `http://localhost:8080/api/feed/${idx}/comment`,
+            success: function (response) {
+                comments = response['comments']
+
+                for (let i = 0; i < comments.length; i++) {
+                    let commentUser = comments[i]['commentUser']
+                    console.dir(commentUser)
+                    let temp_html = `<div class="user_container-detail">
+                        <div class="user"><img src="images/${commentUser['profileImgName']}" alt="user"></div>
+                        <div class="comment">
+                            <span class="user_id">${commentUser['nickName']}</span>${comments[i]['content']}
+                            <div class="time">${comments[i]['createDate']} <span class="delete_comment" onclick="deleteFeedComment(${comments[i]['idx']})">삭제</span></div>
+                            <div class="icon_wrap">
+                                <div class="more_trigger">
+                                    <div class="sprite_more_icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+
+                    $("#comment_container").append(temp_html)
+                }
+            }
+        })
+    }
+
+    function deleteFeedComment(commentIdx) {
+        $.ajax({
+            type: "DELETE",
+            url: `http://localhost:8080/api/feed/comment/${commentIdx}`,
+            success: function (response) {
+                alert(response['msg'])
+                location.reload()
+            }
+        })
+    }
+
+    function writeFeedComment() {
+        let idx = getParam('idx')
+        let comment = $("#comment_ta").val()
+
+        $.ajax({
+            type: "PUT",
+            url: `http://localhost:8080/api/feed/${idx}/comment`,
+            data:{'comment': comment},
+            success: function (response) {
+                alert(response['msg'])
+                location.reload()
+            }
+        })
+    }
+
+    function deleteFeed() {
+        let idx = getParam('idx')
+        $.ajax({
+            type: "DELETE",
+            url: `http://localhost:8080/api/feed/${idx}`,
+            success: function (response) {
+                alert(response['msg'])
+                location.reload()
+            }
+        })
+    }
+
+</script>
+
+</body>
+</html>
