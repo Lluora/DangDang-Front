@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <title>instagram</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="shortcut icon" href="imgs/instagram.png">
+
+</head>
+<body>
+
+
+<section id="container">
+    <header id="header">
+        <section class="h_inner">
+            <h1 class="logo">
+                <a href="index.html">
+                    <div class="sprite_insta_icon"></div>
+                    <div>
+                        <div class="sprite_write_logo"></div>
+                    </div>
+                </a>
+            </h1>
+            <div class="right_icons">
+                <a href="new_post.html"><div class="sprite_camera_icon"></div></a>
+                <a href="profile.html"><div class="sprite_user_icon_outline"></div></a>
+            </div>
+        </section>
+    </header>
+
+
+
+    <div id="main_container">
+
+        <div class="form_container">
+
+            <div class="form">
+
+
+                <h1 class="sprite_insta_big_logo title"></h1>
+
+                <form action="#">
+                    <p class="login_user_name">
+                        <label for="user_name">사용자명</label>
+                        <input type="text" id="user_name">
+                    </p>
+
+                    <p class="login_user_password">
+                        <label for="user_password">비밀번호</label>
+                        <input type="text" id="user_password">
+                    </p>
+
+                    <input type="submit" id="submit_btn" value="로그인" class="submit_btn">
+                </form>
+
+
+
+            </div>
+
+            <div class="bottom_box">
+                <div>
+                    <a href="#">회원가입</a> <a href="#">비밀번호 찾기</a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<script src="js/insta.js"></script>
+</body>
+</html>

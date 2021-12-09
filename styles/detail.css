@@ -439,6 +439,7 @@
 
 #main_container .b_inner {
     width: 1260px;
+    min-width: 1260px;
     position: relative;
 }
 

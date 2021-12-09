@@ -92,7 +92,7 @@
             </div>
             <div class="contents_box">
                 <article class="imgs_contents">
-                    <div class="imgs_section">
+                    <div class="imgs_section" id="imgs_box">
                         <div class="dog_img" id="img_01"><img src="images/imgs_section/dogimg_01.jpg" alt=""></div>
                         <div class="dog_img" id="img_02"><img src="images/imgs_section/dogimg_02.jpg" alt=""></div>
                         <div class="dog_img" id="img_03"><img src="images/imgs_section/dogimg_03.jpg" alt=""></div>
@@ -125,30 +125,33 @@
             <div class="del">삭제</div>
             <div class="cancel">취소</div>
         </div>
-   </div>
+    </div>
 
 </section>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">수정</a>
-                <a href="#" class="list-group-item list-group-item-action list-group-item-danger">삭제</a>
-              </div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">수정</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">삭제</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!-- $.ajax is not a function  error 해결방법 -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/3719d7b7e9.js" crossorigin="anonymous"></script>
-<script src="scripts/main.js"></script>
+<script src="scripts/mainpage.js"></script>
 <!--<script src="js/detail.js"></script>-->
+<script src="scripts/photopage.js"></script>
 
 
 </body>
