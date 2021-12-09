@@ -5,17 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-
-    <title>instagram</title>
+    <title>댕댕백서 :: 로그인</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/common.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">제
     <link rel="stylesheet" href="styles/login.css">
     <link rel="shortcut icon" href="imgs/instagram.png">
 
 </head>
 <body>
-
 
 <section id="container">
     <header id="header">
@@ -35,17 +33,10 @@
         </section>
     </header>
 
-
-
     <div id="main_container">
-
         <div class="form_container">
-
             <div class="form">
-
-
                 <h1 class="sprite_insta_big_logo title"></h1>
-
                 <form action="#">
                     <p class="login_user_name">
                         <label for="user_name">사용자명</label>
@@ -57,7 +48,7 @@
                         <input type="text" id="user_password">
                     </p>
 
-                    <input type="submit" id="submit_btn" value="로그인" class="submit_btn">
+                    <input type="submit" id="submit_btn" value="로그인" onclick="clickLoginBtn();" class="submit_btn">
                 </form>
 
 
@@ -79,6 +70,24 @@
 </section>
 
 
-<script src="js/insta.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+    function clickLoginBtn() {
+        let user_name = $("#user_name").val()
+        let user_password = $("#user_password").val()
+
+        $.ajax({
+            type: "POST",
+            url: `http://localhost:8080/api/login`,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({'nickName': user_name, 'password': user_password}),
+            success: function (response) {
+                localStorage.setItem("JWT_TOKEN", "Bearer " + response['desc'])
+                alert(response['msg'])
+            }
+        })
+    }
+</script>
 </body>
 </html>
