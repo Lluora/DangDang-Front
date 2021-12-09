@@ -149,7 +149,7 @@
 
         $.ajax({
             type: "PUT",
-            url: `http://localhost:8080/api/membership`,
+            url: `http://localhost:8080/membership`,
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify({'nickName': nickName, 'password': password, 'email': email}),
             success: function (response) {
