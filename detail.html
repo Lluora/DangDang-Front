@@ -196,7 +196,10 @@
     function getArticle(idx) {
         $.ajax({
             type: "GET",
-            url: `http://localhost:8080/api/feed/${idx}`,
+            url: `http://localhost:8080/feed/${idx}`,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization",localStorage.getItem("JWT_TOKEN"))
+            },
             success: function (response) {
                 $(".post_writer").html(response['userId']);
                 $("#writer_address").html(response['address']);
@@ -221,7 +224,7 @@
 
         $.ajax({
             type: "PUT",
-            url: `http://localhost:8080/api/feed/${idx}/like`,
+            url: `http://localhost:8080/feed/${idx}/like`,
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify({like: request_like}),
             success: function (response) {
@@ -239,7 +242,7 @@
     function getFeedComment(idx) {
         $.ajax({
             type: "GET",
-            url: `http://localhost:8080/api/feed/${idx}/comment`,
+            url: `http://localhost:8080/feed/${idx}/comment`,
             success: function (response) {
                 comments = response['comments']
 
@@ -268,7 +271,7 @@
     function deleteFeedComment(commentIdx) {
         $.ajax({
             type: "DELETE",
-            url: `http://localhost:8080/api/feed/comment/${commentIdx}`,
+            url: `http://localhost:8080/feed/comment/${commentIdx}`,
             success: function (response) {
                 alert(response['msg'])
                 location.reload()
@@ -282,7 +285,7 @@
 
         $.ajax({
             type: "PUT",
-            url: `http://localhost:8080/api/feed/${idx}/comment`,
+            url: `http://localhost:8080/feed/${idx}/comment`,
             data:{'comment': comment},
             success: function (response) {
                 alert(response['msg'])
@@ -295,7 +298,7 @@
         let idx = getParam('idx')
         $.ajax({
             type: "DELETE",
-            url: `http://localhost:8080/api/feed/${idx}`,
+            url: `http://localhost:8080/feed/${idx}`,
             success: function (response) {
                 alert(response['msg'])
                 location.reload()
