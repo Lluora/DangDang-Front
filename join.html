@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <title>댕댕백서 :: 로그인</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/join.css">
+    <link rel="shortcut icon" href="imgs/instagram.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+<section id="container">
+    <header id="header">
+        <section class="h_inner">
+            <h1 class="logo">
+                <a href="index.html">
+                    <div class="sprite_insta_icon"></div>
+                    <div>
+                        <div class="sprite_write_logo"></div>
+                    </div>
+                </a>
+            </h1>
+            <div class="right_icons">
+                <a href="new_post.html"><div class="sprite_camera_icon"></div></a>
+                <a href="profile.html"><div class="sprite_user_icon_outline"></div></a>
+            </div>
+        </section>
+    </header>
+
+    <div id="main_container">
+        <div class="form_container">
+            <form>
+                <div class="form-group row">
+                    <label for="nickNameTxt" class="col-sm-3 col-form-label">닉네임</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="nickNameTxt" placeholder="닉네임">
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary mb-2" onclick="">아이디 중복체크</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="emailTxt" class="col-sm-3 col-form-label">이메일</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="emailTxt" placeholder="이메일">
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary mb-2">이메일 중복체크</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="passwordTxt1" class="col-sm-3 col-form-label">비밀번호</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="passwordTxt1" placeholder="비밀번호">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="passwordTxt2" class="col-sm-3 col-form-label">비밀번호 확인</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="passwordTxt2" placeholder="비밀번호 확인">
+                    </div>
+                </div>
+            </form>
+
+            <div class="bottom_box">
+                <div>
+                    <a href="#" onclick="clickJoinBtn();">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    function clickJoinBtn() {
+        var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
+        var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+
+
+        if($("#nickNameTxt").val() === ""){
+            alert("아이디 입력바람");
+            $("#nickNameTxt").focus();
+            return false;
+        }
+
+        //이메일 유효성 검사
+        if(!getMail.test($("#emailTxt").val())){
+            alert("이메일형식에 맞게 입력해주세요")
+            $("#emailTxt").val("");
+            $("#emailTxt").focus();
+            return false;
+        }
+
+        if(!getCheck.test($("#nickNameTxt").val())){
+            alert("닉네임 형식에 맞게 입력해주세요");
+            $("#nickNameTxt").val("");
+            $("#nickNameTxt").focus();
+            return false;
+        }
+
+        if(!getCheck.test($("#passwordTxt1").val())) {
+            alert("형식에 맞춰서 PW를 입력해주세요");
+            $("#passwordTxt1").val("");
+            $("#passwordTxt1").focus();
+            return false;
+        }
+
+        if(!getCheck.test($("#passwordTxt2").val())) {
+            alert("형식에 맞춰서 PW를 입력해주세요");
+            $("#passwordTxt2").val("");
+            $("#passwordTxt2").focus();
+            return false;
+        }
+
+        if($("#passwordTxt1").val() != ($("#passwordTxt2").val())) {
+            alert("비밀번호가 틀렸습니다");
+            $("#passwordTxt1").val("");
+            $("#passwordTxt2").val("");
+            $("#passwordTxt1").focus();
+            return false;
+        }
+
+        //이메일 공백 확인
+        if($("#emailTxt").val() == ""){
+            alert("이메일을 입력해주세요");
+            $("#emailTxt").focus();
+            return false;
+        }
+
+        let nickName = $("#nickNameTxt").val()
+        let email = $("#emailTxt").val()
+        let password = $("#passwordTxt1").val()
+
+        console.log(`${nickName}, ${email}, ${password}`)
+
+        $.ajax({
+            type: "PUT",
+            url: `http://localhost:8080/api/membership`,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({'nickName': nickName, 'password': password, 'email': email}),
+            success: function (response) {
+                console.dir(response)
+            }
+        })
+
+
+    }
+</script>
+</body>
+</html>
