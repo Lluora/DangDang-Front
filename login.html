@@ -8,7 +8,7 @@
     <title>댕댕백서 :: 로그인</title>
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/common.css">
-    <link rel="stylesheet" href="styles/style.css">제
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="shortcut icon" href="imgs/instagram.png">
 
@@ -79,7 +79,7 @@
 
         $.ajax({
             type: "POST",
-            url: `http://localhost:8080/api/login`,
+            url: `http://localhost:8080/login`,
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify({'nickName': user_name, 'password': user_password}),
             success: function (response) {
