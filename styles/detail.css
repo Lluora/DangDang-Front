@@ -151,7 +151,7 @@
     padding:12px 16px;
     height: 400px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 .scroll_section .admin_container{
     margin-bottom: 10px;
