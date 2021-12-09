@@ -115,7 +115,7 @@
     display: inline-block;
 }
 .contents .img_section .trans_inner img{
-    width: 100%;
+    min-width: 600px;
     height: 100%;
 }
 
@@ -531,7 +531,7 @@
   top: 10px;
   opacity: 0;
   transition: opacity 0.5s ease, top 0.5s ease;
-  transition-delay: 0;
+  transition-delay: 0s;
 }
 span {
   transition: color 0.5s ease;
