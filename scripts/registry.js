@@ -3,7 +3,6 @@ $(document).ready(function () {
     bsCustomFileInput.init()  // 파일 업로드 코드
     if ( $("#image_container").val() == "")
     {  $("#DeletePhoto").hide() }
-    alert($("#NickName").text())
 })
 
 
