@@ -3,6 +3,7 @@ $(document).ready(function () {
     bsCustomFileInput.init()  // 파일 업로드 코드
     if ( $("#image_container").val() == "")
     {  $("#DeletePhoto").hide() }
+    alert($("#NickName").text())
 })
 
 
@@ -30,9 +31,6 @@ function checkUpload() {
             if (addressConfirm) {
                 saveArticle()
             }
-            else {
-                alert('주소 입력을 위해 업로드 작성 화면으로 돌아갑니다.');
-            }
         }
         if ( ($("#writerArticle").val().length != 0) && ($("#addressSearch").val().length !=0) && ($("#product_image")[0].files[0] == undefined) ) {
             alert("사진 업로드가 필요해요! 😆")
@@ -54,6 +52,7 @@ function saveArticle() {
     form_data.append("content", $("#writerArticle").val())
     form_data.append("puppy", $("#checkBox option:selected").val())
     form_data.append("image", $("#product_image")[0].files[0])
+    form_data.append("nickname", $("#NickName").text())
 
     $.ajax({
         type: "POST",
